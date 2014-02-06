@@ -200,6 +200,8 @@ DBImpl::DBImpl(const Options& options, const std::string& dbname)
   Log(options_.info_log,"               File cache size: %zd", double_cache.GetCapacity(true));
   Log(options_.info_log,"              Block cache size: %zd", double_cache.GetCapacity(false));
 
+fprintf(stderr, "config::kL0_SlowdownWritesTrigger=%d\n", config::kL0_SlowdownWritesTrigger);
+
 }
 
 DBImpl::~DBImpl() {

@@ -26,13 +26,16 @@ static const int kNumOverlapLevels = 2;
 
 // Level-0 compaction is started when we hit this many files.
 // Google:  static const size_t kL0_CompactionTrigger = 4;
-static const size_t kL0_CompactionTrigger = 6;
+// Pete: Increased to 16 to avoid compaction slowdown
+static const size_t kL0_CompactionTrigger = 16;
 
 // Soft limit on number of level-0 files.  We slow down writes at this point.
-static const size_t kL0_SlowdownWritesTrigger = 8;
+// Pete: Increased to 32 to avoid compaction slowdown
+static const size_t kL0_SlowdownWritesTrigger = 32;
 
 // Maximum number of level-0 files.  We stop writes at this point.
-static const size_t kL0_StopWritesTrigger = 12;
+// Pete: Increased to 128 to avoid compaction slowdown
+static const size_t kL0_StopWritesTrigger = 128;
 
 // Maximum level to which a new compacted memtable is pushed if it
 // does not create overlap.  We try to push to level 2 to avoid the
